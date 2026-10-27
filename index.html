@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7eee5">
+  <title>INSIDE YOU — Misi di Dalam Tubuh</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">\n  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Inside You beranda">
+        <span class="brand-mark">🧬</span><span>INSIDE <b>YOU</b><small>MINI SCIENCE ADVENTURE</small></span>
+      </a>
+      <div class="top-stats">
+        <div class="stat-pill"><span>⭐</span><b id="xpValue">0 XP</b></div>
+        <div class="stat-pill"><span>🪙</span><b id="coinValue">0</b></div>
+        <button class="icon-btn" id="soundBtn" aria-label="Aktifkan atau matikan suara">🔊</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="homeScreen" class="screen home-screen">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse-dot"></span> PETUALANGAN IPA KELAS 8</div>
+          <h1>Perjalanan kecil.<br><span>Pengetahuan besar!</span></h1>
+          <p>Jadilah si mungil pemberani dan jelajahi sistem pencernaan manusia. Selesaikan misi, kumpulkan nutrisi, dan buka semua area!</p>
+          <div class="hero-actions">
+            <button class="primary-btn" id="playBtn">Mulai petualangan <span>→</span></button>
+            <button class="secondary-btn" id="howBtn">Cara bermain</button>
+          </div>
+          <div class="hero-proof"><span class="avatar-stack">🍓 🥦 🍞</span><span>5 level seru · mini quiz · progress tersimpan</span></div>
+        </div>
+        <div class="hero-art">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="spark spark-a">✦</div><div class="spark spark-b">✧</div><div class="spark spark-c">✦</div>
+          <div class="float-label label-top">NUTRIENT POWER! ✨</div>
+          <div class="hero-organ stomach-art"><div class="stomach-shine"></div><div class="face"><i></i><i></i><b></b></div><span class="cheek left"></span><span class="cheek right"></span></div>
+          <div class="hero-food">🍓</div><div class="hero-food food-two">🍞</div>
+          <div class="float-label label-bottom">LET'S EXPLORE!</div>
+          <div class="mini-star star-one">⭐</div><div class="mini-star star-two">✨</div>
+        </div>
+        <div class="feature-strip">
+          <div><span class="feature-icon peach">🕹️</span><b>Jelajahi</b><small>Gerakkan karaktermu</small></div>
+          <div><span class="feature-icon mint">🧠</span><b>Pelajari</b><small>Fakta sains singkat</small></div>
+          <div><span class="feature-icon lilac">🏆</span><b>Kumpulkan</b><small>XP dan lencana</small></div>
+        </div>
+      </section>
+
+      <section id="mapScreen" class="screen map-screen hidden">
+        <div class="section-heading">
+          <div><div class="eyebrow">PETA PETUALANGAN</div><h2>Jelajahi jalur pencernaan</h2><p>Buka area berikutnya dengan menuntaskan misi sebelumnya.</p></div>
+          <button class="secondary-btn small-btn" id="homeBtn">← Beranda</button>
+        </div>
+        <div class="map-layout">
+          <div class="route-map">
+            <svg class="route-lines" viewBox="0 0 600 420" preserveAspectRatio="none" aria-hidden="true"><path d="M90 70 C180 30 190 140 280 130 S380 170 460 220 S350 300 260 320 S130 360 100 385" fill="none" stroke="#e3cfc1" stroke-width="8" stroke-linecap="round" stroke-dasharray="3 16"/></svg>
+            <button class="level-node node-1" data-level="0"><span>👄</span><b>1</b><small>Mulut</small></button>
+            <button class="level-node node-2" data-level="1"><span>🌀</span><b>2</b><small>Kerongkongan</small></button>
+            <button class="level-node node-3" data-level="2"><span>🫃</span><b>3</b><small>Lambung</small></button>
+            <button class="level-node node-4" data-level="3"><span>✨</span><b>4</b><small>Usus halus</small></button>
+            <button class="level-node node-5" data-level="4"><span>🌼</span><b>5</b><small>Usus besar</small></button>
+            <div class="map-cloud cloud-one"></div><div class="map-cloud cloud-two"></div>
+          </div>
+          <aside class="progress-card">
+            <div class="progress-head"><span>🏅</span><div><b>Perjalananmu</b><small id="progressLabel">0 dari 5 level selesai</small></div></div>
+            <div class="progress-track"><span id="progressBar"></span></div>
+            <div class="progress-stats"><div><b id="completedCount">0/5</b><small>Level selesai</small></div><div><b id="mapXp">0 XP</b><small>Total pengalaman</small></div></div>
+            <div class="badge-box"><span id="badgeIcon">🌱</span><div><b id="badgeTitle">Penjelajah Pemula</b><small id="badgeDesc">Mulai misi pertamamu!</small></div></div>
+            <button class="primary-btn full-btn" id="continueBtn">Lanjutkan misi →</button>
+            <button class="text-btn" id="resetBtn">↻ Ulangi progres dari awal</button>
+          </aside>
+        </div>
+      </section>
+
+      <section id="gameScreen" class="screen game-screen hidden">
+        <div class="game-topline">
+          <button class="secondary-btn small-btn" id="mapBtn">← Peta</button>
+          <div class="level-title"><span id="levelEmoji">👄</span><div><small id="levelTag">LEVEL 1</small><b id="levelName">Mouth Mission</b></div></div>
+          <div class="level-progress"><span id="collectCount">0/3 ⭐</span><div class="progress-track"><span id="collectBar"></span></div></div>
+        </div>
+        <div class="game-layout">
+          <div class="playfield-wrap">
+            <canvas id="gameCanvas" width="900" height="480" aria-label="Area permainan. Gunakan tombol panah atau A dan D untuk bergerak, spasi untuk melompat."></canvas>
+            <div class="canvas-hint" id="canvasHint">← → bergerak · SPACE melompat · kumpulkan bintang!</div>
+            <div class="mobile-controls" aria-label="Kontrol permainan"><button data-key="left">◀</button><button data-key="jump">⬆</button><button data-key="right">▶</button></div>
+          </div>
+          <aside class="mission-panel">
+            <div class="mission-label"><span>📍</span> MISI AKTIF</div>
+            <h3 id="missionTitle">Kumpulkan nutrisi!</h3>
+            <p id="missionText">Jelajahi area dan kumpulkan bintang untuk membuka tantangan.</p>
+            <div class="mission-objective"><span>🎯</span><div><small>TUJUAN</small><b id="objectiveText">Kumpulkan 3 bintang</b></div></div>
+            <div class="science-fact"><div class="fact-top"><span>💡</span><b>FAKTA IPA</b></div><p id="factText">Gigi membantu menghancurkan makanan menjadi bagian lebih kecil.</p></div>
+            <button class="primary-btn full-btn" id="quizBtn" disabled>Mulai mini quiz 🔒</button>
+            <div class="controls-note"><b>Kontrol laptop</b><span>← → / A D : bergerak</span><span>SPACE / ↑ : melompat</span><span>Sentuh bintang untuk mengumpulkannya</span></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="quizScreen" class="screen quiz-screen hidden">
+        <div class="quiz-card">
+          <div class="quiz-top"><span class="quiz-chip">🧠 MINI QUIZ</span><span id="quizStep">PERTANYAAN 1/3</span></div>
+          <div class="quiz-illustration" id="quizIllustration">👄</div>
+          <h2 id="questionText">Apa fungsi utama gigi saat makan?</h2>
+          <p class="quiz-subtitle">Pilih jawaban yang paling tepat untuk melanjutkan petualangan.</p>
+          <div class="answer-list" id="answerList"></div>
+          <div class="quiz-feedback hidden" id="quizFeedback"></div>
+          <div class="quiz-footer"><span id="quizScore">Jawaban benar: 0</span><button class="primary-btn" id="nextQuestionBtn" disabled>Periksa jawaban</button></div>
+        </div>
+      </section>
+
+      <section id="resultScreen" class="screen result-screen hidden">
+        <div class="result-card">
+          <div class="result-confetti">🎉 ✨ 🥳</div>
+          <div class="result-medal" id="resultMedal">🏅</div>
+          <div class="eyebrow">MISI SELESAI!</div>
+          <h2 id="resultTitle">Kerja bagus, penjelajah!</h2>
+          <p id="resultText">Kamu berhasil menyelesaikan level ini.</p>
+          <div class="result-rewards"><div><span>⭐</span><b id="rewardXp">+100 XP</b><small>Pengalaman</small></div><div><span>🪙</span><b id="rewardCoins">+25</b><small>Koin bonus</small></div><div><span>🧠</span><b id="rewardCorrect">3/3</b><small>Quiz benar</small></div></div>
+          <div class="result-fact"><b>📚 Yang kamu pelajari</b><p id="resultFact">Gigi membantu pencernaan mekanis.</p></div>
+          <div class="result-actions"><button class="primary-btn" id="nextLevelBtn">Level berikutnya →</button><button class="secondary-btn" id="resultMapBtn">Kembali ke peta</button></div>
+        </div>
+      </section>
+
+      <section id="howModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="howTitle">
+        <div class="modal-card"><button class="close-modal" id="closeHow" aria-label="Tutup">×</button><div class="modal-emoji">🎮</div><h2 id="howTitle">Cara bermain</h2><div class="how-steps"><p><b>1.</b> Pilih level yang terbuka di peta.</p><p><b>2.</b> Gerakkan karakter dengan tombol ← → atau A dan D.</p><p><b>3.</b> Tekan SPACE atau ↑ untuk melompat dan kumpulkan 3 bintang.</p><p><b>4.</b> Jawab mini quiz tentang organ pencernaan.</p><p><b>5.</b> Dapatkan XP, koin, dan buka level berikutnya!</p></div><button class="primary-btn full-btn" id="gotItBtn">Siap berpetualang!</button></div>
+      </section>
+      <div id="toast" class="toast hidden"></div>
+    </main>
+    <footer><span>INSIDE YOU ©</span><span>Belajar IPA jadi petualangan <b>✦</b></span></footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
